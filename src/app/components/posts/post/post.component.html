@@ -1,0 +1,31 @@
+<div class="container">
+    <button type="button" class="btn btn-info mt-5 mb-4" routerLink="/posts" >Return</button>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Author id</th>
+        <th scope="col">Post id</th>
+        <th scope="col">Post title</th>
+        <th scope="col">Post body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cursor-pointer" *ngIf="post">
+        <th scope="row">{{ post.userId }}</th>
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn {{ (!commentsActive ? 'btn-success' : 'btn-secondary') }} mb-4" (click)="getComments(post.id)">{{ (!commentsActive ? 'Показать' : 'Скрыть') }} комментарии</button>
+  <div *ngIf="commentsActive">
+    <ul class="list-group" *ngFor="let comment of comments">
+      <li class="list-group-item mb-1">
+        <p>name: {{ comment.name }}</p>
+        <p>email: {{ comment.email }}</p>
+        <p>body: {{ comment.body }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

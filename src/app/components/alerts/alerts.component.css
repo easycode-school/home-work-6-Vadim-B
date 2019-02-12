@@ -1,0 +1,14 @@
+.alert {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	transition: 0.5s;
+	transform: translateY(-80px);
+	opacity: 0.5;
+}
+
+.alert-active {
+	transition: 0.5s;
+	transform: translateY(0);
+	opacity: 1;
+}

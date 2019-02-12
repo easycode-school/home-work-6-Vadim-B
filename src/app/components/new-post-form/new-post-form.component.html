@@ -1,0 +1,15 @@
+<div class="container">
+  <form name="addNewPostForm" class="mt-4 pb-5" novalidate (ngSubmit)="addPost (addNewPostForm)" #addNewPostForm="ngForm">
+    <div class="form-group">
+      <label for="postTitle">Title</label>
+      <input name="postTitle" type="text" value="{{ editPost.title }}" class="form-control" id="postTitle" [(ngModel)]="newPost.title">
+    </div>
+    <div class="form-group">
+      <label for="postBody">Body</label>
+      <textarea name="postBody" value="{{ editPost.body }}" class="form-control" id="postBody" rows="3" [(ngModel)]="newPost.body"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="!editPost.title">Submit</button>
+    <button type="button" class="btn btn-success mr-4" *ngIf="editPost.title" (click)="editPostSubmit()">Edit</button>
+    <button type="button" class="btn btn-secondary" *ngIf="editPost.title" (click)="cancelEditPost()">Cancel</button>
+  </form>
+</div>

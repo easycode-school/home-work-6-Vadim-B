@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table table-bordered table-hover mt-5">
+    <caption>Подпись</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Author id</th>
+        <th scope="col">Post id</th>
+        <th scope="col">Post title</th>
+        <th scope="col">Post body</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cursor-pointer" *ngFor="let post of posts">
+        <th scope="row">{{ post.userId }}</th>
+        <td>
+          {{ post.id }}
+          <button type="button" class="btn btn-info" routerLink="/posts/{{post.id}}" >Info</button>
+        </td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td>
+            <button type="button" class="btn btn-danger mb-1" (click)="deletePost(post.id)">Delete</button>
+            <button type="button" class="btn btn-warning" (click)="editPost(post)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
